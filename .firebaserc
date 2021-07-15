@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "driivz-iss-satellite-tracking": {
+      "hosting": {
+        "driivz": [
+          "driivz-iss-satellite-tracking"
+        ]
+      }
+    }
+  }
+}
