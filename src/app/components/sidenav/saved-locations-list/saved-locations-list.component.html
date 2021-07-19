@@ -1,0 +1,27 @@
+<mat-form-field appearance="outline">
+  <mat-label>Find location</mat-label>
+  <input [formControl]="filter" matInput placeholder="Location">
+  <mat-icon matSuffix>search</mat-icon>
+</mat-form-field>
+
+<mat-card style="cursor: pointer" (click)="zoomOnLocation(savedLocation);
+  selectedLocation(savedLocation.id)" *ngFor="let savedLocation of filteredStates$ | async; let i = index" class="item-card">
+  <button (click)="deleteLocation(savedLocation, $event)" class="delete-location" mat-mini-fab color="warn">
+    <mat-icon>highlight_off</mat-icon>
+  </button>
+  <mat-card-header>
+    <div mat-card-avatar class="location-header-image"></div>
+    <mat-card-title>{{ savedLocation.country }}</mat-card-title>
+    <mat-card-subtitle>Location</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <p>Latitude: {{savedLocation.lat}}</p>
+    <p>Longitude: {{savedLocation.lng}}</p>
+    <p>Time: {{savedLocation.time}}</p>
+  </mat-card-content>
+  <mat-chip-list>
+    <mat-chip *ngIf="selected == savedLocation.id" color="primary" selected>selected</mat-chip>
+  </mat-chip-list>
+</mat-card>
+
+<p class="empty-locations" *ngIf="!(filteredStates$ | async)?.length">Add new locations<mat-icon class="info-icon" matSuffix>info</mat-icon></p>

@@ -3,8 +3,9 @@ import { CommonModule } from '@angular/common';
 import { MapComponent } from "./map.component";
 import { GoogleMapsModule } from "@angular/google-maps";
 import { GoogleMapsComponent } from './google-maps/google-maps.component';
-import { BrowserModule } from "@angular/platform-browser";
 import { IssLocationService } from "../../shared/services/iss-location/iss-location.service";
+import { MatButtonModule } from '@angular/material/button';
+import { RouterModule } from "@angular/router";
 
 
 
@@ -14,7 +15,8 @@ import { IssLocationService } from "../../shared/services/iss-location/iss-locat
   imports: [
     GoogleMapsModule,
     CommonModule,
-    BrowserModule,
+    MatButtonModule,
+    RouterModule.forChild([{ path: '', component: MapComponent }])
   ],
   exports: [
     GoogleMapsComponent,

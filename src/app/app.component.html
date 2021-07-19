@@ -1,1 +1,22 @@
-<app-map></app-map>
+<mat-drawer-container class="app-container" autosize>
+  <mat-drawer [opened]="true" #drawer class="sidenav" mode="side">
+    <app-sidenav></app-sidenav>
+  </mat-drawer>
+
+  <div class="sidenav-content">
+    <mat-toolbar color="primary">
+      Location
+      <mat-icon style="margin-left: 10px; cursor: pointer" mat-mini-fab color="white" (click)="drawer.toggle()">explore</mat-icon>
+      <span class="ml-2">Date: {{this.time}} Latitude: {{this.lat}} Longitude: {{this.lng}}</span>
+    </mat-toolbar>
+
+    <nav mat-tab-nav-bar>
+      <a mat-tab-link *ngFor="let tabItem of tabs" [routerLink]="tabItem.route" routerLinkActive #rla="routerLinkActive" [active]="rla.isActive">
+        <mat-icon class="mr-8">{{tabItem.icon}}</mat-icon>
+        {{tabItem.label}}
+      </a>
+    </nav>
+    <router-outlet></router-outlet>
+  </div>
+
+</mat-drawer-container>

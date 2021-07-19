@@ -1,4 +1,7 @@
-<div>
-  <google-map></google-map>
+<div class="google-map-container">
+  <google-map height="87.8vh" width="100%" [center]="center" [zoom]="zoom">
+    <map-marker [position]="markerPosition" [options]="markerOptions"></map-marker>
+  </google-map>
+  <button (click)="saveLocation(center.lat, center.lng)" class="save-location-btn" mat-flat-button color="primary">Save Location</button>
 </div>
 

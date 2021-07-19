@@ -5,3 +5,28 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
+@import '~@swimlane/ngx-datatable/index.css';
+@import '~@swimlane/ngx-datatable/themes/material.scss';
+@import '~@swimlane/ngx-datatable/assets/icons.css';
+
+* { padding: 0; margin: 0; }
+
+html, body {
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+}
+
+body > * {
+  flex-shrink: 0;
+}
+
+app-root {
+  display: block;
+  height: 100vh;
+}
+
+mat-drawer-container, .sidenav-content {
+  height: 100vh;
+}
